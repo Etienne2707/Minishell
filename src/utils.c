@@ -1,0 +1,74 @@
+#include "minishell.h"
+
+int	strlen_no_space(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	while (str[i - 1] == ' ')
+		i--;
+	return (i);
+}
+
+int	have_digit(char *str, int i)
+{
+	printf("Yes !");
+	while (str[i] != '\0' || str[i] == '|')
+	{
+		if (str[i] != ' ' && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A'
+				|| str[i] > 'Z') && (str[i] < '0' || str[i] > '9'))
+			return (-1);
+		i++;
+	}
+	return (1);
+}
+
+/*int	check_start_end(char *str)
+{
+	int	size;
+	int	i;
+
+	size = strlen_no_space(str);
+	i = 0;
+	while (check[i] != '\0')
+	{
+		if (check[i] == str[i] || check[i] == str[size - 1])
+			return (-1);
+		i++;
+	}
+	return (0);
+}*/
+
+int	only_special(char *str)
+{
+	int	i;
+	int	c;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] != '<' && str[i] != '>' && str[i] != '|' && str[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (-1);
+}
+
+int	no_authorize(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] != ' ' && str[i] != '|' && str[i] != '>' && str[i] != '<')
+			&& (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z')
+			&& (str[i] < '0' || str[i] > '9'))
+			return (-1);
+		i++;
+	}
+	return (0);
+}
+
