@@ -1,1 +1,4 @@
 gcc *.c *.h -lreadline  
+
+gerer en priorite les $ rapelle en "" ou normak mais pas ne ''
+cherhcer dans env si valeur donne 
