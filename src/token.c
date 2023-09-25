@@ -21,8 +21,8 @@ char*    get_cmdr(char *cmd)
         break ;
     }
     i = 0;
-    str = malloc(sizeof(char) * c - k + 1);
-    while (k <= c)
+    str = malloc(sizeof(char) * c);
+    while (i <= c)
         str[i++] = cmd[k++];
 
     
@@ -47,9 +47,11 @@ int init_struct(char **cmd, t_token *token)
         printf("%s\n", token->cmdr);
         i++;
     }
+    return (1);
 }
 
 int token(char **cmd, t_token *token)
 {
     init_struct(cmd, token);
+    return (1);
 }

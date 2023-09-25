@@ -29,11 +29,10 @@ int	Syntax_Error(char *str, t_token *token)
 
 	i = 0;
 	cmd = ft_split(str, '|');
-	
 	if ((no_authorize(str)) == -1)
 		return (-1);
 	init_struct(cmd, token);
-	
+	return (1);
 	
 }
 int	check_str(char *str, t_token *token)
@@ -44,6 +43,7 @@ int	check_str(char *str, t_token *token)
 		write(1, "Syntax Error\n", 13);
 		return (-1);
 	}
+	return (1);
 }
 
 int	main(int ac, char **argv, char **envp)
@@ -56,7 +56,8 @@ int	main(int ac, char **argv, char **envp)
 	{
 		str = readline("Minishell > ");
 		check_str(str, token);
-		if (strcmp(str, "exit") == 0)
-			return (0);
+	//	if (strcmp(str, "exit") == 0)
+		//	return (0);
 	}
+	return (1);
 }
