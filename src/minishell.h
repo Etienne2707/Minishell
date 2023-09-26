@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:48:24 by educlos           #+#    #+#             */
-/*   Updated: 2023/09/22 05:30:35 by educlos          ###   ########.fr       */
+/*   Updated: 2023/09/26 15:27:19 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef struct s_token {
     char *cmdr;
     char **arg;
+    int   start_arg;
 }              t_token;
 
 
