@@ -46,7 +46,7 @@ int	charset_verif(char *str, char c, char d, int i)
 		else
 			return (0);
 	}
-	return 0;
+	return (0);
 }
 
 int	wordcount(char *str, char d)

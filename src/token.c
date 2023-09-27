@@ -4,7 +4,7 @@ char    *ft_strnrcpy(char *str, char *temp, int c)
 {
     int i;
     char tmp;
-    temp = malloc(sizeof(char) * strlen(str) - c);
+    temp = malloc(sizeof(char) * strlen(str) - c + 1);
     if (!temp)
         return (NULL);
     i = 0;
@@ -16,6 +16,8 @@ char    *ft_strnrcpy(char *str, char *temp, int c)
         i++;
         c++;
     }
+    
+    temp[i] = '\0';
     return (temp);
 }
 
@@ -58,9 +60,10 @@ char*    get_cmdr(char *cmd, t_token *token)
         break ;
     }
     i = 0;
-    str = malloc(sizeof(char) * c - 1);
-    while (i <= c - 1)
+    str = malloc(sizeof(char) * c + 1);
+    while (i < c )
         str[i++] = cmd[k++];
+    str[i] = '\0';
     token->start_arg = k;
     return (str);
     

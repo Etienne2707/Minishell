@@ -5,8 +5,12 @@ int	ft_strlen(char *str)
 	int i;
 
 	i = 0;
+	//printf("%s | ", str );
+	if (!str)
+		return (0);
 	while (str[i] != '\0')
 		i++;
+	//printf("voila  %s %d\n",str,  i);
 	return (i);
 }
 
@@ -24,7 +28,6 @@ int	strlen_no_space(char *str)
 
 int	have_digit(char *str, int i)
 {
-	printf("Yes !");
 	while (str[i] != '\0' || str[i] == '|')
 	{
 		if (str[i] != ' ' && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A'

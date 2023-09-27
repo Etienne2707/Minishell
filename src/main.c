@@ -49,13 +49,15 @@ char	*get_value(char *env, char *str)
 	c = 0;
 	if(ft_compare(str, env, ft_strlen(str)) != 0)
 		return (NULL);
-	value = malloc(sizeof(char) * ft_strlen(env) - ft_strlen(str) + 2);
+	value = malloc(sizeof(char) * ft_strlen(env) - ft_strlen(str));
 	while (env[i] != '\0')
 	{
 		value[c] = env[i];
 		i++;
 		c++;
 	}
+	
+	value[c] = '\0';
 	return (value);
 }
 	char	*swap_value(char *value, char **envp)
@@ -95,6 +97,7 @@ char*	get_dollars(char *str, int pos, char **envp)
 		i++;
 		c++;
 	}
+	value[c] = '\0';
 	c = i - c;
 	return (change_value(value, str, swap_value(value, envp), c));
 }
@@ -185,7 +188,7 @@ int	main(int ac, char **argv, char **envp)
 	str = readline("Minishell > ");
 	while (-1)
 	{
-		
+		//printf("%s\n", str);
 		check_str(str, token, envp);
 		if (strcmp(str, "exit") == 0)
 			return (0);
