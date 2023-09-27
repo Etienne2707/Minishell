@@ -1,0 +1,3 @@
+[submodule "cringe"]
+	path = cringe
+	url = https://github.com/Etienne2707/libft.git

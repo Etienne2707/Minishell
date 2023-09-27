@@ -22,42 +22,42 @@
     return (0);
 }*/
 
-char	*get_value(char *env, char *str, int pos)
+char	*get_value(char *env, char *str)
 {
-	int i;
-	int k;
-	int c
+	size_t i;
+	size_t c;
+	char	*value;
 
-	i = 0;
-	k = 0;
+	i = strlen(str) + 1;
 	c = 0;
+	printf("%d\n", strlen(str));
+	if(strncmp(env, str, strlen(str) + 1 != 0))
+		return (NULL);
+	printf("%d\n", strlen(env) - strlen(str) - 1);
+	value = malloc(sizeof(char) * strlen(env) - strlen(str) + 1);
 	while (env[i] != '\0')
 	{
-		if (env[i] == '$')
-		{
-			while (env[i] == str[k] && str[k] != '\0' && env[i] != '\0')
-			{
-				i++;
-				k++;
-				c++;
-			}
-			if(c == strlen(str) && env[i + 1] == '=')
-			{
-				c = 0;
-				while (c <)
-			}
+		value[c] = env[i];
+		i++;
+		c++;
 	}
+	printf("%s\n", value);
+	return (value);
 }
 
-char	*switch_dollars(char *str, char *value, char **envp)
+void	switch_dollars(char *str, char *value, char **envp)
 {
 	int i;
+	char *dol;
 
 	i = 0;
 	while(envp[i] != 0)
 	{
-		get_value(envp[i], value);
+		dol = get_value(envp[i], value);
+		i++;
 	}
+	return ;
+
 }
 
 char*	get_dollars(char *str, int pos, char **envp)
@@ -66,7 +66,7 @@ char*	get_dollars(char *str, int pos, char **envp)
 	int c;
 	char *value;
 
-	i = pos;
+	i = pos + 1;
 	while (str[pos] != '}' && str[pos] != '_' && (str[pos] < '0' || str[pos] > '9'))
 		pos++;
 	value = malloc(sizeof(char) * pos - i);
@@ -80,7 +80,8 @@ char*	get_dollars(char *str, int pos, char **envp)
 		c++;
 	}
 	c = c - i;
-	switch_dollars(str, value, c, envp);
+	printf("%s\n", value);
+	return (value);
 }
 
 char	*checkdollars(char *str, char **envp)
@@ -93,10 +94,12 @@ char	*checkdollars(char *str, char **envp)
 	{
 		if (str[i] == '$')
 		{
-			value = get_dollars(str, i, env);
+			value = get_dollars(str, i, envp);
+			switch_dollars(str,value,envp);
 		}
 		i++;
 	}
+	return (NULL);
 	
 }
 

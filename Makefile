@@ -1,8 +1,8 @@
 NAME = minishell
 
-SRC_DIR = src
+SRC_DIR = ./src
 
-BIN_DIR = bin/
+BIN_DIR = ./bin/
 
 SRC =	$(SRC_DIR)/main.c			\
 		$(SRC_DIR)/utils.c			\
@@ -13,7 +13,7 @@ OBJ = $(SRC:$(SRC_DIR)/%.c=$(BIN_DIR)%.o)
 
 INCLUDES = ./includes
 
-CFLAGS = -I$(INCLUDES)s -Werror -Wall -Wextra -lreadline  
+CFLAGS = -I$(INCLUDES) -g3 -lreadline
 
 all :	$(NAME)
 
