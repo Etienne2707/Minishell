@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:48:24 by educlos           #+#    #+#             */
-/*   Updated: 2023/09/26 15:27:19 by educlos          ###   ########.fr       */
+/*   Updated: 2023/09/27 18:11:35 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,11 @@ int only_special(char *str);
 int no_authorize(char *str);
 char	**ft_split(const char *s, char c);
 int init_struct(char **cmd, t_token *token);
+int	ft_strlen(char *str);
+int ft_compare(char *str, char *str2, int size);
+char*	ft_strlcpy(char *dest, char *src, unsigned int size);
+char *ft_strjoin(char  *s1, char  *s2);
+char *ft_strnjoin(char  *s1, char  *s2, int c);
+
 
 #endif

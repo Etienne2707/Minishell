@@ -32,7 +32,8 @@ char**  get_arg(char *cmd, t_token *token)
     {
         printf("je suis l'argument n%d = %s\n", i , token->arg[i]);
         i++;
-    } 
+    }
+    return (token->arg);
   
 }
 
