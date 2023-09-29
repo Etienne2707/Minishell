@@ -4,7 +4,7 @@ char    *ft_strnrcpy(char *str, char *temp, int c)
 {
     int i;
     char tmp;
-    temp = malloc(sizeof(char) * strlen(str) - c + 1);
+    temp = malloc(sizeof(char) * ft_strlen(str) - c + 1);
     if (!temp)
         return (NULL);
     i = 0;

@@ -29,6 +29,8 @@ char	*change_value(char *value, char *str, char *swap, int c)
 
 	i = 0;
 	k = 0;
+	if (!swap)
+		return (NULL);
 	new = malloc(sizeof(char) * ft_strlen(swap) + (ft_strlen(str) - ft_strlen(value) + 1));
 	if (!new)
 		return (NULL);
@@ -99,23 +101,28 @@ char*	get_dollars(char *str, int pos, char **envp)
 	}
 	value[c] = '\0';
 	c = i - c;
+	printf("%s\n", value);
 	return (change_value(value, str, swap_value(value, envp), c));
 }
 
 char*	checkdollars(char *str, char **envp)
 {
 	int i;
+	char *lea;
 
 	i = 0;
+	lea  = str;
 	while(str[i] != '\0')
 	{
 		if (str[i] == '$')
 		{
-			str = get_dollars(str, i, envp);
+			lea = get_dollars(str, i, envp);
 		}
 		i++;
 	}
-	return (str);
+	if (!lea)
+		return (str);
+	return (lea);
 	
 }
 
@@ -190,8 +197,8 @@ int	main(int ac, char **argv, char **envp)
 	{
 		//printf("%s\n", str);
 		check_str(str, token, envp);
-		if (strcmp(str, "exit") == 0)
-			return (0);
+		//if (strcmp(str, "exit") == 0)
+	//	return (0);
 		str = readline("Minishell > ");
 	}
 	return (1);
